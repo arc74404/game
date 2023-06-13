@@ -15,7 +15,6 @@ Gui::eventHandling()
         {
             window.close();
         }
-
     }
 }
 
@@ -28,9 +27,11 @@ Gui::windowRendering()
     {
         window.clear(sf::Color(176, 163, 79));
 
-        // Background::draw(window);
+        Background::draw(window);
 
         Map::draw(window);
+
+        Player::draw(window);
 
         window.display();
     }
@@ -43,9 +44,12 @@ Gui::createWindow()
 {
     int lenght = 1500;
     int weight = 900;
-    window.create(sf::VideoMode(lenght, weight), "Game");
 
     Background::setBoard(lenght, weight);
+
+    Map::Map();
+
+    window.create(sf::VideoMode(lenght, weight), "Game");
 
     window.setFramerateLimit(60);
 }

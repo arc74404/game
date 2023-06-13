@@ -2,7 +2,7 @@
 
 BaseObject::BaseObject(sf::Vector2f _coordinate = sf::Vector2f(0, 0))
 {
-    rectangle_parametrs.coordinate = _coordinate;
+    size.coordinate = _coordinate;
 
     shape.setPosition(_coordinate);
 }
@@ -12,12 +12,20 @@ BaseObject::BaseObject(float x, float y)
 {
 }
 
-BaseObject::Type BaseObject::getType()
+BaseObject::Type
+BaseObject::getType()
 {
     return type;
 }
 
-void BaseObject::draw(sf::RenderWindow& window)
+void
+BaseObject::draw(sf::RenderWindow& window)
 {
     window.draw(shape);
+}
+
+void
+BaseObject::setRectanglePosition(sf::Vector2f _position)
+{
+    shape.setPosition(_position);
 }

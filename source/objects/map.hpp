@@ -5,6 +5,8 @@
 
 #include "region.hpp"
 
+#include "player.hpp"
+
 class Map
 {
 private:
@@ -17,8 +19,6 @@ private:
 
 public:
     static void draw(sf::RenderWindow& window);
-
-    static Map map;
 
     Map();
 };

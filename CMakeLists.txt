@@ -15,7 +15,8 @@ find_package(SFML 2.5.1 COMPONENTS system window graphics audio REQUIRED)
 add_executable(${PROJECT_NAME} 
 source/app/main.cpp source/app/app.cpp source/gui/gui.cpp
 source/gui/background.cpp source/objects/base_object.cpp
-source/objects/stone.cpp source/objects/map.cpp source/objects/region.cpp)
+source/objects/stone.cpp source/objects/map.cpp source/objects/region.cpp
+source/objects/object_rect_data.cpp source/objects/player.cpp)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE sfml-system sfml-window sfml-network sfml-graphics sfml-audio)
 

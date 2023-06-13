@@ -12,7 +12,7 @@ private:
 
     sf::Vector2i position_on_map;
 
-    sf::Vector2f size;
+    static const sf::Vector2f size;
 
     std::vector<std::shared_ptr<BaseObject>> object_array;
     
@@ -20,8 +20,11 @@ private:
 
     sf::RectangleShape surface;
 
+    void createObjects();
+
 public:
-    explicit Region(sf::Vector2i _position_on_map);
+
+    Region(sf::Vector2i _position_on_map);
 
     Region(int x, int y);
 
@@ -33,9 +36,11 @@ public:
 
     void setPositionOnMap(sf::Vector2i _position_on_map);
 
-    void createObjects();
+    void setRectanglePosition(sf::Vector2f _position);
 
-    sf::Vector2f getSize();
+    void setTexture(std::string s);
+
+    static sf::Vector2f getSize();
 
     void draw(sf::RenderWindow& window);
 };

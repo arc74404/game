@@ -6,12 +6,12 @@ Stone::Stone(sf::Vector2f _coordinate) : BaseObject(_coordinate)
 
     type = BaseObject::Type::STONE;
 
-    rectangle_parametrs.height = 100;
-    rectangle_parametrs.lenght = 100;
-    rectangle_parametrs.width  = 30;
+    size.height = 100;
+    size.lenght = 100;
+    size.width  = 30;
 
     shape.setSize(
-        sf::Vector2f(rectangle_parametrs.lenght, rectangle_parametrs.height));
+        sf::Vector2f(size.lenght, size.height));
 
     if (texture.loadFromFile("C:/Users/arsbo/source/repos/game/bin/pictures/stone.png"))
     {

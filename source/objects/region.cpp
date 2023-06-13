@@ -1,31 +1,20 @@
 #include "region.hpp"
 
+const sf::Vector2f Region::size = {828 / 2, 755 / 2};
+
+sf::Vector2f
+Region::getSize()
+{
+    return size;
+}
+
 Region::Region(sf::Vector2i _position_on_map)
 {
-
-    size = sf::Vector2f(828 / 2, 755 / 2);
-
     setPositionOnMap(_position_on_map);
-
-    createObjects();
-
-    surface.setOutlineThickness(5);
-    surface.setOutlineColor(sf::Color::Green);
-
-    surface.setTextureRect(sf::IntRect(0, 0, 100, 100));
-    // surface.setFillColor(sf::Color::Blue);
 
     surface.setSize(size);
 
-    if (surface_texture.loadFromFile(
-            "C:/Users/arsbo/source/repos/game/bin/pictures/grass.jpg"))
-    {
-        surface.setTexture(&surface_texture);
-    }
-    else
-    {
-        std::cout << "ERROR WITH TEXTURE\n";
-    }
+    createObjects();
 }
 
 Region::Region(int x, int y) : Region(sf::Vector2i(x, y))
@@ -35,7 +24,6 @@ Region::Region(int x, int y) : Region(sf::Vector2i(x, y))
 Region::Region() : Region(0, 0)
 {
 }
-
 
 void
 Region::setPositionOnMap(sf::Vector2i _position_on_map)
@@ -60,12 +48,6 @@ Region::getPositionOnMap() const
     return position_on_map;
 }
 
-sf::Vector2f
-Region::getSize()
-{
-    return size;
-}
-
 void
 Region::createObjects()
 {
@@ -73,7 +55,8 @@ Region::createObjects()
 
     for (int i = 0; i < object_array.size(); ++i)
     {
-        object_array[i] = std::make_shared<Stone>(i * 100, i * 100);
+        object_array[i] =
+            std::make_shared<Stone>(rand() % 4 * 100, rand() % 4 * 100);
     }
 }
 
@@ -85,5 +68,30 @@ Region::draw(sf::RenderWindow& window)
     for (int i = 0; i < object_array.size(); ++i)
     {
         object_array[i]->draw(window);
+    }
+}
+
+void
+Region::setTexture(std::string s)
+{
+    if (surface_texture.loadFromFile(
+            "C:/Users/arsbo/source/repos/game/bin/pictures/grass.jpg"))
+    {
+        surface.setTexture(&surface_texture);
+    }
+    else
+    {
+        std::cout << "ERROR WITH TEXTURE\n";
+    }
+}
+
+void
+Region::setRectanglePosition(sf::Vector2f _position)
+{
+    surface.setPosition(_position);
+
+    for (int i = 0; i < object_array.size(); ++i)
+    {
+        object_array[i]->setRectanglePosition(_position);
     }
 }

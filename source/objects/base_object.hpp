@@ -3,20 +3,21 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "object_rect_data.hpp"
-
 #include <iostream>
+
+#include "object_rect_data.hpp"
 
 class BaseObject
 {
 protected:
+
     enum class Type;
 
     Type type;
 
-    float health;//прочность или здоровье
+    float health; // прочность или здоровье
 
-    RectData rectangle_parametrs;
+    RectData size;
 
     sf::Texture texture;
 
@@ -30,13 +31,15 @@ public:
     enum class Type
     {
         STONE = 0, // комень
-        TREE = 1, // дерево
-        BUSH = 2  // куст
+        TREE  = 1, // дерево
+        BUSH  = 2  // куст
     };
 
     void draw(sf::RenderWindow& window);
 
     Type getType();
+
+    void setRectanglePosition(sf::Vector2f _position);
 };
 
 #endif // BASE_OBJECT_HPP
