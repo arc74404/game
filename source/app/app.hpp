@@ -2,7 +2,7 @@
 #define APP_HPP
 
 #include "C:/Users/arsbo/source/repos/game/source/gui/gui.hpp"
-#include "C:/Users/arsbo/source/repos/game/source/objects/stone.hpp"
+#include "C:/Users/arsbo/source/repos/game/source/objects/map/stone.hpp"
 
 
 #include "random"

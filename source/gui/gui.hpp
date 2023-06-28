@@ -3,7 +3,7 @@
 
 #include "background.hpp"
 
-#include "C:/Users/arsbo/source/repos/game/source/objects/map.hpp"
+#include "C:/Users/arsbo/source/repos/game/source/objects/map/map.hpp"
 
 class Gui
 {
@@ -11,6 +11,12 @@ private:
     static sf::RenderWindow window;
 
     static const sf::Vector2f ellipse_size;
+
+    static sf::Clock clock;
+
+    static float time;
+
+    static bool is_mouse_LeftButoon_press;
 
 public:
     static void eventHandling();
