@@ -8,31 +8,47 @@ float Gui::time = 0;
 
 sf::Clock Gui::clock;
 
-bool Gui::is_mouse_LeftButoon_press = false;
+bool Gui::holding_escape = false;
 
 void
 Gui::eventHandling()
 {
     sf::Event event;
-
     window.pollEvent(event);
-
+    //////////////////////////////////////////////////////////
     if (event.type == sf::Event::Closed)
     {
         window.close();
     }
-
-    if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+    //////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
     {
-        sf::Vector2i mouse_position = sf::Mouse::getPosition(window);
-
-        Player::changePosition(mouse_position);
+        if (!holding_escape)
+        {
+            Menu::escapeAction();
+            holding_escape = true;
+        }
     }
+    else holding_escape = false;
+    //////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////
+    sf::Vector2i mouse_position = sf::Mouse::getPosition(window);
 
-    if (Player::Is_moving())
+    if (!Menu::Is_open())
     {
-        Player::move(time);
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        {
+            Player::changePosition(mouse_position);
+        }
     }
+    else
+    {
+        Menu::processing(mouse_position,
+                         sf::Mouse::isButtonPressed(sf::Mouse::Left));
+    }
+    //////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////
 }
 
 bool
@@ -48,8 +64,11 @@ Gui::windowRendering()
 
         Player::draw(window);
 
-        // Background::draw(window);
-
+        if (Menu::Is_open())
+        {
+            Menu::draw(window);
+        }
+        
         time = clock.getElapsedTime().asSeconds();
         clock.restart();
 

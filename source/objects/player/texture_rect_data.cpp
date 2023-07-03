@@ -6,6 +6,8 @@ TextureRectData::TextureRectData()
     patterns.resize(9);
 
     patterns[0] = sf::IntRect(17, 17, 106, 153);
+
+    
     patterns[1] = sf::IntRect(17 + 126, 17, 106, 153);
     patterns[2] = sf::IntRect(17 + 235, 17, 106, 153);
     patterns[3] = sf::IntRect(387, 17, 106, 153);

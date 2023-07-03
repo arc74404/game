@@ -14,7 +14,10 @@ find_package(SFML 2.5.1 COMPONENTS system window graphics audio REQUIRED)
 
 add_executable(${PROJECT_NAME} 
 source/app/main.cpp
+source/app/button.cpp
+source/app/m_button.cpp
 source/app/app.cpp
+source/app/menu.cpp
 source/gui/gui.cpp
 source/gui/background.cpp 
 source/objects/map/object_rect_data.cpp 

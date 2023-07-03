@@ -1,9 +1,10 @@
 #ifndef GUI_HPP
 #define GUI_HPP
 
-#include "background.hpp"
-
+#include "C:/Users/arsbo/source/repos/game/source/app/menu.hpp"
 #include "C:/Users/arsbo/source/repos/game/source/objects/map/map.hpp"
+
+#include "background.hpp"
 
 class Gui
 {
@@ -14,13 +15,13 @@ private:
 
     static sf::Clock clock;
 
-    static float time;
-
-    static bool is_mouse_LeftButoon_press;
+    static bool holding_escape;
 
 public:
-    static void eventHandling();
+    static float time;
     
+    static void eventHandling();
+
     static sf::Vector2u getWindowSize();
 
     static bool windowRendering();

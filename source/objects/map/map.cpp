@@ -1,8 +1,8 @@
 #include "map.hpp"
 
-int Map::count_regions_lenght = 20;
+int Map::count_regions_lenght = 1;
 
-int Map::count_regions_weight = 10;
+int Map::count_regions_weight = 1;
 
 std::vector<Region> Map::region_array;
 

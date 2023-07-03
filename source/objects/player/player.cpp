@@ -22,6 +22,7 @@ sf::RectangleShape Player::shape;
 
 Player Player::player;
 
+
 void
 updateMiddleBase()
 {
@@ -76,7 +77,6 @@ Player::Player()
     updateMiddleBase();
 }
 
-
 void
 Player::draw(sf::RenderWindow& window)
 {
@@ -99,6 +99,7 @@ Player::draw(sf::RenderWindow& window)
     {
         last_stop.draw(window, stop_coordinate_in_window);
     }
+
     window.draw(shape);
 }
 
@@ -128,8 +129,6 @@ Player::changePosition(sf::Vector2i mouse_position)
     is_first_show = true;
 
     last_stop.hideCircle();
-
-    std::cout << "hide\n";
 }
 
 void
@@ -141,8 +140,6 @@ Player::move(float time)
     {
         last_stop.showCircle();
         is_first_show = false;
-
-        std::cout << "show\n";
     }
     is_new_position = false;
 
