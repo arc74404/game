@@ -13,21 +13,25 @@ set(SFML_DIR ${SFML_ROOT_DIR}/lib/cmake/SFML)
 find_package(SFML 2.5.1 COMPONENTS system window graphics audio REQUIRED)
 
 add_executable(${PROJECT_NAME} 
-source/app/main.cpp
-source/app/button.cpp
-source/app/m_button.cpp
-source/app/app.cpp
-source/app/menu.cpp
-source/gui/gui.cpp
-source/gui/background.cpp 
-source/objects/map/object_rect_data.cpp 
-source/objects/map/base_object.cpp
-source/objects/map/stone.cpp 
-source/objects/map/map.cpp 
-source/objects/map/region.cpp
-source/objects/player/player.cpp
-source/objects/player/last_stop.cpp
-source/objects/player/texture_rect_data.cpp)
+source/main.cpp
+source/data_base.cpp
+source/editorial_place.cpp
+source/button.cpp
+source/text_button.cpp
+source/m_button.cpp
+source/app.cpp
+source/menu.cpp
+source/main_functions.cpp
+source/gui.cpp
+source/background.cpp 
+source/object_rect_data.cpp 
+source/base_object.cpp
+source/stone.cpp 
+source/map.cpp 
+source/region.cpp
+source/player.cpp
+source/last_stop.cpp
+source/texture_rect_player_data.cpp)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE sfml-system sfml-window sfml-network sfml-graphics sfml-audio)
 
