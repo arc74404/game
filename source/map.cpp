@@ -1,8 +1,8 @@
 #include "map.hpp"
 
-int Map::count_regions_lenght = 20;
+int Map::count_regions_lenght = 10;
 
-int Map::count_regions_width = 10;
+int Map::count_regions_width = 5;
 
 std::vector<Region> Map::region_array;
 
@@ -41,23 +41,19 @@ Map::draw(sf::RenderWindow& window)
 
     static bool was = false;
 
-    for (int i = -4; i <= 4; ++i)
+    for (int i = -2; i <= 2; ++i)
     {
-        for (int j = -3; j <= 2; ++j)
+        for (int j = -1; j <= 1; ++j)
         {
             sf::Vector2i region_position =
                 sf::Vector2i(int(player_position.x) / Region::getSize().x + i,
                              int(player_position.y) / Region::getSize().y + j);
 
-            if (region_position.x < 0 || region_position.y < 0 ||
-                region_position.x >= Map::count_regions_lenght ||
-                region_position.y >= Map::count_regions_width)
-            {
-                continue;
-            }
-
             int number_region =
                 getNumberRegion(region_position.x, region_position.y);
+
+            if (number_region < 0 || number_region >= region_array.size())
+                continue;
 
             sf::Vector2f displacement_vector =
                 player_position - region_array[number_region].getPosition();
@@ -68,7 +64,35 @@ Map::draw(sf::RenderWindow& window)
             region_array[number_region].setRectanglePosition(
                 rectangle_position_region);
 
-            region_array[number_region].draw(window);
+            region_array[number_region].drawBase(window);
+        }
+    }
+    for (int i = -2; i <= 2; ++i)
+    {
+        for (int j = -1; j <= 1; ++j)
+        {
+            sf::Vector2i region_position =
+                sf::Vector2i(int(player_position.x) / Region::getSize().x + i,
+                             int(player_position.y) / Region::getSize().y + j);
+
+            int number_region =
+                getNumberRegion(region_position.x, region_position.y);
+
+            std::cout << number_region << '\n';
+
+            if (number_region < 0 || number_region >= region_array.size())
+                continue;
+
+            sf::Vector2f displacement_vector =
+                player_position - region_array[number_region].getPosition();
+
+            sf::Vector2f rectangle_position_region =
+                player_position_window - displacement_vector;
+
+            region_array[number_region].drawObjects(window);
+
+            std::cout << number_region << ": "
+                      << region_array[number_region].getCountObjects() << '\n';
         }
     }
     was = true;

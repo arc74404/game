@@ -14,7 +14,7 @@ EditorialPlace::EditorialPlace(int size)
 
     first_letter_of_visible_part = 0;
 
-    lenght_of_visible_part = 5;
+    lenght_of_visible_part = 10;
 
     visible = false;
 }

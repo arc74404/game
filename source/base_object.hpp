@@ -44,6 +44,9 @@ public:
     void setRectanglePosition(sf::Vector2f _position);
 
     sf::Vector2f getPosition();
+
+    
+
 };
 
 #endif // BASE_OBJECT_HPP

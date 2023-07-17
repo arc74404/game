@@ -23,6 +23,8 @@ private:
 
     static TextButton t_button;
 
+    static sf::RectangleShape border_object;
+
 public:
     static float time;
 

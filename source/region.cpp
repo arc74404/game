@@ -47,12 +47,15 @@ Region::getPositionOnMap() const
 }
 
 void
-Region::draw(sf::RenderWindow& window)
+Region::drawBase(sf::RenderWindow& window)
 {
     surface.setOutlineThickness(3);
     surface.setOutlineColor(sf::Color::Green);
     window.draw(surface);
-
+}
+void
+Region::drawObjects(sf::RenderWindow& window)
+{
     for (int i = 0; i < object_array.size(); ++i)
     {
         object_array[i]->draw(window);
@@ -89,4 +92,10 @@ void
 Region::addObject(std::shared_ptr<BaseObject> object)
 {
     object_array.emplace_back(object);
+}
+
+int
+Region::getCountObjects()
+{
+    return object_array.size();
 }

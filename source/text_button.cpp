@@ -67,8 +67,8 @@ TextButton::draw(sf::RenderWindow& window)
     window.setMouseCursor(cursor);
     window.draw(shape);
 
-    sf::String extra_str = input.substring(edit_place.getFirst(),
-                                           edit_place.getLenght());
+    sf::String extra_str =
+        input.substring(edit_place.getFirst(), edit_place.getLenght());
 
     text.setString(extra_str);
 
@@ -89,6 +89,9 @@ TextButton::processing(sf::Vector2i mouse_position)
     bool is_pressed = sf::Mouse::isButtonPressed(sf::Mouse::Left);
 
     int place = edit_place.getPlace();
+
+    sf::Vector2f mouse_position_in_text =
+        static_cast<sf::Vector2f>(mouse_position) - text.getPosition();
 
     if (mouse_position.x > shape_position.x &&
         mouse_position.x < shape_position.x + shape.getSize().x &&

@@ -20,7 +20,6 @@ private:
     sf::RectangleShape surface;
 
 public:
-
     Region(sf::Vector2i _position_on_map);
 
     Region(int x, int y);
@@ -39,9 +38,13 @@ public:
 
     static sf::Vector2f getSize();
 
-    void draw(sf::RenderWindow& window);
+    void drawBase(sf::RenderWindow& window);
+
+    void drawObjects(sf::RenderWindow& window);
 
     void addObject(std::shared_ptr<BaseObject> object);
+
+    int getCountObjects();
 };
 
 #endif // REGION_HPP

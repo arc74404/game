@@ -69,7 +69,7 @@ setShapeParametrs()
 void
 Player::createPlayer()
 {
-    collision_data  = RectData(sf::Vector2f(0, 0), 80, 20, 170);
+    collision_data  = DataBase::PlayerRectData();
     health          = 200;
     status          = Status::STAY_R;
     is_first_show   = false;

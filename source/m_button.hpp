@@ -23,6 +23,7 @@ public:
     mButton(sf::Vector2f size);
 
     static void setTexture(std::string file_name);
+    
     void draw(sf::RenderWindow& window) override;
 
     ///////////////////////////////////////

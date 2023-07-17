@@ -28,7 +28,7 @@ public:
     EditorialPlace(int size);
 
     int getPlace();
-
+    
     void processing(int pp);
 
     void draw(sf::RenderWindow& window);
